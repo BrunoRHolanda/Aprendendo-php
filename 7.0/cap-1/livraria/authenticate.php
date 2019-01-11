@@ -1,0 +1,26 @@
+<?php
+
+$submited = isset($_POST['username'] && isset($_POST['password']));
+if ($submited) {
+	setcookie('usernem', $_POST['username']);
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Bookstore</title>
+</head>
+<body>
+	<?php if ($submited) : ?>
+		<p>You login info is</p>
+		<ul>
+			<li><b>username</b>: <?php echo $_POST['username']; ?></li>
+			<li><b>password</b>: <?php echo $_POST['password']; ?></li>
+		</ul>
+	<?php else : ?>
+		<p>You did not submit anything.</p>
+	<?php endif; ?>
+</body>
+</html>
